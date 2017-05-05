@@ -142,9 +142,12 @@ namespace barcodes
 	string ZipCodeToBarCodeConverter(string zipCode)
 	{
 		string checkDigit = IntegerToStringConversion(CheckDigit(zipCode));
+		zipCode.append(checkDigit);
 		string barCode = "";
+		string frameBars = "|";
+		barCode.append(frameBars);
 		string digit = "";
-		for (int index = 0; index < 5; index++)
+		for (int index = 0; index < kLengthOfZipCode + 1; index++)
 		{
 			if (zipCode[index] == '1')
 			{
@@ -192,6 +195,7 @@ namespace barcodes
 			}
 			barCode.append(digit);
 		}
+		barCode.append(frameBars);
 		return barCode;
 	}
 
