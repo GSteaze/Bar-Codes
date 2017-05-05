@@ -21,7 +21,7 @@ namespace barcodes
 
 	@return validInput
 	*/
-	string InvalidInput(string userInput);
+	string InputValidater(string userInput);
 
 	/*
 	Checks to see if the bar code is valid
@@ -38,6 +38,56 @@ namespace barcodes
 	@param &isValidZipCode is true if the bar code is the proper size and only contains numbers
 	*/
 	bool ZipCodeValidator(string zipCode);
+
+	/*
+	Converts the user provided zip code into a bar code
+
+	@param zipCode the zip code entered by the user
+
+	@return barCode the bar code that represents the zip code
+	*/
+	string ZipCodeToBarCodeConverter(string zipCode);
+
+	/*
+	Converts the user provided bar code into a zip code
+
+	@param barCode the bar code entered by the user
+
+	@return zipCode the zip code that represents the bar code
+	*/
+	int BarCodeToZipCodeConverter(string zipCode);
+
+	/*
+	Converts string zip codes into integer zip codes and calculates check digit
+
+	@param zipCodeString the zip code in string form
+
+	@return zipCodeCheckDigit the check digit in integer form
+	*/
+	int CheckDigit(string zipCodeString);
+
+	/*
+	Converts a number of integer data type to string data type
+
+	@param number the integer number
+
+	@return numberAsAString the number in string form
+	*/
+	string IntegerToStringConversion(int number);
+
+	/*
+	Detects if the input is a bar code or zip code and then converts it to it's opposing form
+
+	@param validatedInput the bar code or string to be converted
+	*/
+	void Converter(string validatedInput);
+
+	/*
+	Prompts the user if they would like to rerun the program
+
+	@return isAgain returns true if the user would like to rerun the program
+	*/
+	bool RunItAgain();
 
 	void TestCode();
 }

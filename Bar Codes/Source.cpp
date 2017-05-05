@@ -9,8 +9,15 @@ using namespace barcodes;
 
 int main()
 {
-	string userInput = UserInput();
-	cout << userInput << endl;
+	bool isAgain = 0;
+
+	do
+	{
+		string userInput = UserInput();
+		Converter(userInput);
+		isAgain = RunItAgain();
+
+	} while (isAgain);
 
 	//TestCode();
 	return 0;
