@@ -428,26 +428,31 @@ namespace barcodes
 		//Check Digit
 		int checkDigit = CheckDigit("95014");
 		cout << "Check Digit: " << checkDigit << endl;
+		checkDigit = CheckDigit("72762");
+		cout << "Check Digit: " << checkDigit << endl;
 		
 		//ZipCodeToBarCodeConverter
-		cout << ZipCodeToBarCodeConverter("72762") << endl;
-		cout << ZipCodeToBarCodeConverter("12345") << endl;
+		cout << ZipCodeToBarCodeConverter("72762") << endl; // ||:::|::|:||:::|:||::::|:|:::|||
+		cout << ZipCodeToBarCodeConverter("12345") << endl; // |:::||::|:|::||::|::|:|:|::::|||
 
 		//BarCodeToZipCodeConverter
-		cout << BarCodeToZipCodeConverter("||:|:::|:|:||::::::||:|::|:::|||") << endl;
+		cout << BarCodeToZipCodeConverter("||:|:::|:|:||::::::||:|::|:::|||") << endl; //95014
+		cout << BarCodeToZipCodeConverter("|:::||::|:|::||::|::|:|:|::::|||") << endl; //12345
 
 		//BarCodeValidator
 		bool isValidBarCode = 1;
-		isValidBarCode = BarCodeValidator(":||||:");
+		isValidBarCode = BarCodeValidator("||:|:::|:|:||::::::||:|::|:::|||");
 		cout << isValidBarCode << endl;
-		isValidBarCode = BarCodeValidator("9");
+		isValidBarCode = BarCodeValidator("||:|:::|:|:||::::::||:|::|:::||a");
 		cout << isValidBarCode << endl;
-		isValidBarCode = BarCodeValidator("|:9");
+		isValidBarCode = BarCodeValidator("||:|:::|:|:||::::::||:|::|:::||");
 		cout << isValidBarCode << endl;
 		
 		//ZipCodeValidator
 		bool isValidZipCode = 1;
 		isValidZipCode = ZipCodeValidator("72762");
+		cout << isValidZipCode << endl;
+		isValidZipCode = ZipCodeValidator("7276a");
 		cout << isValidZipCode << endl;
 		return;
 	}
